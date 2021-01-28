@@ -102,6 +102,7 @@ export abstract class AbstractPackageManager {
     return dependencies as ProjectDependency[];
   }
 
+  // 读取 package.json 中的依赖
   public async getDevelopement(): Promise<ProjectDependency[]> {
     const packageJsonContent = await this.readPackageJson();
     const packageJsonDevDependencies: any = packageJsonContent.devDependencies;

@@ -24,6 +24,10 @@ import {
 import { EMOJIS, MESSAGES } from '../lib/ui';
 import { AbstractAction } from './abstract.action';
 
+/**
+ * @file 执行流程 bin - command - action - manager
+ */
+
 export class NewAction extends AbstractAction {
   public async handle(inputs: Input[], options: Input[]) {
     const directoryOption = options.find(
@@ -33,6 +37,7 @@ export class NewAction extends AbstractAction {
     const isDryRunEnabled = dryRunOption && dryRunOption.value;
 
     await askForMissingInformation(inputs);
+    // 生成项目文件
     await generateApplicationFiles(inputs, options).catch(exit);
 
     const shouldSkipInstall = options.some(
@@ -103,6 +108,7 @@ const replaceInputMissingInformation = (
   );
 };
 
+// 生成项目文件
 const generateApplicationFiles = async (args: Input[], options: Input[]) => {
   const collectionName = options.find(
     (option) => option.name === 'collection' && option.value != null,
@@ -205,6 +211,7 @@ const createGitIgnoreFile = (dir: string, content?: string) => {
   return promisify(fs.writeFile)(filePath, fileContent);
 };
 
+// 这个方法不错
 const printCollective = () => {
   const dim = print('dim');
   const yellow = print('yellow');
