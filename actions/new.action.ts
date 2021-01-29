@@ -29,6 +29,7 @@ import { AbstractAction } from './abstract.action';
  */
 
 export class NewAction extends AbstractAction {
+  // 流程其实很简单，创建项目模板，执行脚本，只不过内部抽象设计比较复杂
   public async handle(inputs: Input[], options: Input[]) {
     const directoryOption = options.find(
       (option) => option.name === 'directory',
@@ -156,6 +157,7 @@ const installPackages = async (
   }
   if (inputPackageManager !== undefined) {
     try {
+      // 创建 npm 或者 yarn manager
       packageManager = PackageManagerFactory.create(inputPackageManager);
       await packageManager.install(installDirectory, inputPackageManager);
     } catch (error) {

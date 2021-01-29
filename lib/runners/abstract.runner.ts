@@ -3,6 +3,7 @@ import { ChildProcess, spawn, SpawnOptions } from 'child_process';
 import { MESSAGES } from '../ui';
 
 export class AbstractRunner {
+  // binary 由子类传递，就是 npm 或者 yarn
   constructor(protected binary: string, protected args: string[] = []) {}
 
   public async run(

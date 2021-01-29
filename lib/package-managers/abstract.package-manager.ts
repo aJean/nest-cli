@@ -24,6 +24,7 @@ export abstract class AbstractPackageManager {
       const commandArguments = `${this.cli.install} --silent`;
       const collect = true;
       const dasherizedDirectory: string = dasherize(directory);
+      // 开启子进程执行任务，比如 npm install --silent
       await this.runner.run(
         commandArguments,
         collect,

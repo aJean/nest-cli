@@ -6,6 +6,7 @@ import { PackageManagerCommands } from './package-manager-commands';
 
 export class NpmPackageManager extends AbstractPackageManager {
   constructor() {
+    // 注入 this.runner
     super(RunnerFactory.create(Runner.NPM) as NpmRunner);
   }
 
