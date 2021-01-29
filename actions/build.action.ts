@@ -31,6 +31,7 @@ export class BuildAction extends AbstractAction {
     this.tsLoader,
   );
   protected readonly webpackCompiler = new WebpackCompiler(this.pluginsLoader);
+  // 使用 typescript，我们主要用这个
   protected readonly watchCompiler = new WatchCompiler(
     this.pluginsLoader,
     this.tsConfigProvider,

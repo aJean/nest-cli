@@ -1,5 +1,8 @@
 import * as ts from 'typescript';
 
+/**
+ * @file 就是 require ts .. 加入了目录判断
+ */
 export class TypeScriptBinaryLoader {
   private tsBinary?: typeof ts;
 
