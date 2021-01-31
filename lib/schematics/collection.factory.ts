@@ -8,6 +8,7 @@ import { NestCollection } from './nest.collection';
 export class CollectionFactory {
   public static create(collection: Collection | string): AbstractCollection {
     switch (collection) {
+      // 项目模板的 git 地址
       case Collection.NESTJS:
         return new NestCollection(
           RunnerFactory.create(Runner.SCHEMATIC) as SchematicRunner,

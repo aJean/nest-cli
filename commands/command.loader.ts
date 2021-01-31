@@ -17,6 +17,12 @@ import { InfoCommand } from './info.command';
 import { NewCommand } from './new.command';
 import { StartCommand } from './start.command';
 import { UpdateCommand } from './update.command';
+
+/**
+ * @file 实例化命令，要 new 很多次的原因是 commander 的注册和类绑定在了一起
+ *       如果在外部注册，就可以只创建当前命令的实例了 
+ */
+
 export class CommandLoader {
   public static load(program: CommanderStatic): void {
     new NewCommand(new NewAction()).load(program);
