@@ -162,6 +162,7 @@ export class BuildAction extends AbstractAction {
     defaultPath: string,
   ): (
     config: webpack.Configuration,
+    webpackRef: typeof webpack,
   ) => webpack.Configuration | webpack.Configuration {
     const pathToWebpackFile = join(process.cwd(), webpackPath);
     try {
