@@ -25,6 +25,7 @@ import { UpdateCommand } from './update.command';
 
 export class CommandLoader {
   public static load(program: CommanderStatic): void {
+    // 通过 program 去注册不同类别的命令，简单的依赖注入，action 可以不与 commander 绑定
     new NewCommand(new NewAction()).load(program);
     new BuildCommand(new BuildAction()).load(program);
     new StartCommand(new StartAction()).load(program);
